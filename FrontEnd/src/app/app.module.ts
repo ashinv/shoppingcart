@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './shared/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatToolbarModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
