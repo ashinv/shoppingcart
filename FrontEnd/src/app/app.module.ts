@@ -9,6 +9,7 @@ import { ProductsComponent } from './component/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './shared/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CartComponent,
     ProductsComponent,
     FilterPipe,
-
+    FooterComponent
   ],
   imports: [
     BrowserModule,
