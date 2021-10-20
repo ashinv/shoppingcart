@@ -32,7 +32,7 @@
                             <td colspan="4"></td>
                             <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
-                            <td><button class="btn btn-success">Checkout</button></td>
+                            <td><a [routerLink]="['/checkout']"><button class="btn btn-success">Checkout</button></a></td>
                             <td><strong>Grand Total : ${{grandTotal}}</strong></td>
                         </tr>
                     </tbody>
@@ -58,77 +58,7 @@
 </ng-container>
 
 <section class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
-    <div class="row">
-      <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-
-        <!-- Shopping cart table -->
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="p-2 px-3 text-uppercase">Product</div>
-                </th>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="py-2 text-uppercase">Price</div>
-                </th>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="py-2 text-uppercase">Quantity</div>
-                </th>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="py-2 text-uppercase">Remove</div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="border-0">
-                  <div class="p-2">
-                    <img src="https://therichpost.com/wp-content/uploads/2021/05/dummyimage400x300.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                    <div class="ms-3 d-inline-block align-middle">
-                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Product 1</a></h5>
-                    </div>
-                  </div>
-                </th>
-                <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                <td class="border-0 align-middle"><strong>3</strong></td>
-                <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="bi bi-trash"></i></a></td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <div class="p-2">
-                    <img src="https://therichpost.com/wp-content/uploads/2021/05/dummyimage400x300.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                    <div class="ms-3 d-inline-block align-middle">
-                      <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Product 2</a></h5>
-                    </div>
-                  </div>
-                </th>
-                <td class="align-middle"><strong>$79.00</strong></td>
-                <td class="align-middle"><strong>3</strong></td>
-                <td class="align-middle"><a href="#" class="text-dark"><i class="bi bi-trash"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <div class="p-2">
-                    <img src="https://therichpost.com/wp-content/uploads/2021/05/dummyimage400x300.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                    <div class="ms-3 d-inline-block align-middle">
-                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Product 3</a></h5>
-                    </div>
-                  </div>
-                  <td class="align-middle"><strong>$79.00</strong></td>
-                  <td class="align-middle"><strong>3</strong></td>
-                  <td class="align-middle"><a href="#" class="text-dark"><i class="bi bi-trash"></i></a>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- End -->
-      </div>
-    </div>
-
+    
     <div class="row py-5 p-4 bg-white rounded shadow-sm">
       <div class="col-lg-6">
         <div class="bg-light rounded-pill px-4 py-3 text-uppercase fw-bold">Coupon code</div>
@@ -163,5 +93,5 @@
       </div>
     </div>
 
-  </div>
+  
   </section>
