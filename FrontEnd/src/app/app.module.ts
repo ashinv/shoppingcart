@@ -14,6 +14,7 @@ import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { OrderComponent } from './component/order/order.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
