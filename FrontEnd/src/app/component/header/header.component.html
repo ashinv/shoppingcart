@@ -1,9 +1,10 @@
 <header>
     <div class="navbar navbar-dark bg-primary shadow-sm">
         <div class="navbar-brand align-item-center d-flex">
-            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+           <a [routerLink]="['/products']" class="home" style="color: white;" ><i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
                 
-            </i>   
+        </i>    </a> 
+
             <strong style="font-size: 30px;">FastDel</strong>
             <div class="form-group">
                 <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">

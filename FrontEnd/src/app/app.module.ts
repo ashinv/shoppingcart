@@ -15,6 +15,7 @@ import { SignupComponent } from './component/signup/signup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutComponent } from './component/checkout/checkout.component';
 import { OrderComponent } from './component/order/order.component';
+import { ThankyouComponent } from './component/thankyou/thankyou.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { OrderComponent } from './component/order/order.component';
     LoginComponent,
     SignupComponent,
     CheckoutComponent,
-    OrderComponent
+    OrderComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,
