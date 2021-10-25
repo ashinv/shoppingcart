@@ -25,6 +25,10 @@ export class CartService {
     this.getTotalPrice();
     console.log(this.cartItemList)
   }
+  addsameitem(){
+    this.productList.next(this.cartItemList);
+     this.getTotalPrice();
+  }
   getTotalPrice() : number{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
