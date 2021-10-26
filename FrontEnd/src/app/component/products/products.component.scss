@@ -1,5 +1,5 @@
 .card-top {
-    position: relative;
+   
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -8,6 +8,8 @@
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: .25rem;
+    position: relative;
+
 }
 
 .item img {
@@ -15,7 +17,7 @@
 }
 
 .item {
-    margin: 0px 15px;
+  margin-right: 1em;
     text-align: center;
 }
 
@@ -26,6 +28,7 @@
 .card {
     padding: 20px;
     margin: 50px;
+
 }
 
 .card img {
