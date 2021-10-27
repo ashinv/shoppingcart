@@ -13,16 +13,16 @@ public loginForm!:FormGroup;
 
   ngOnInit(): void {
     this.loginForm=this.formbuilder.group({
-      email:[''],
-      password:['']
+      Email:[''],
+      Password:['']
     })
   }
 
   login(){
-    this.http.get<any>("http://localhost:3000/signupUsers")
+    this.http.get<any>("http://localhost:50883/api/CustomerTables")
     .subscribe(res=>{
       const user =res.find((a:any)=>{
-        return a.email===this.loginForm.value.email && a.password===this.loginForm.value.password
+        return a.Email===this.loginForm.value.Email && a.Password===this.loginForm.value.Password
       });
       if(user){
         alert("Login Successfull");
