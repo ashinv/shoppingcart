@@ -7,15 +7,15 @@
             </div>         
                     <form [formGroup]="loginForm" (ngSubmit)="login()">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <label data-error="Required field!" for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input class="validate" formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input formControlName="Password" type="password" class="form-control" id="exampleInputPassword1">
+                          <label data-error="Required field!" for="exampleInputPassword1" class="form-label">Password</label>
+                          <input class="validate" formControlName="Password" type="password" class="form-control" id="exampleInputPassword1" required>
                         </div>                       
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
                       </form>
              <a style="margin-top: 5px;" [routerLink]="['/signup']" >New user? Click to signup</a>
         </div>

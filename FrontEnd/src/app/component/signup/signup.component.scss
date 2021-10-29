@@ -9,3 +9,9 @@
     background:paleturquoise;
 
 }
+input.ng-invalid.ng-dirty{
+    border-color: red !important;
+    box-shadow: 0 1px 0 0 red !important; 
+
+
+}

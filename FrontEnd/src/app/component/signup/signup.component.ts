@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
+
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   public signupForm!:FormGroup;
   constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router) { }
 
@@ -19,9 +21,10 @@ export class SignupComponent implements OnInit {
       Email:[''],
       Password:['']
     })
+
   }
 signUp(){
-  this.http.post<any>("http://localhost:50883/api/CustomerTables",this.signupForm.value)
+  this.http.post<any>("http://localhost:64413/api/CustomerTables",this.signupForm.value)
   .subscribe(res=>{
     alert("SignUp Successfull");
     this.signupForm.reset();

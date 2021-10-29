@@ -3,9 +3,16 @@
     width: 500px;
     padding: 40px;
     position: absolute;
-    top: 5%;
+    margin-top: 0em;
+    top:5%;
     left: 50%;
     transform: translate(-50%,50%);
     background:paleturquoise;
+
+}
+input.ng-invalid.ng-dirty{
+    border-color: red !important;
+    box-shadow: 0 1px 0 0 red !important; 
+
 
 }

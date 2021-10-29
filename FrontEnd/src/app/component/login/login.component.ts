@@ -19,7 +19,7 @@ public loginForm!:FormGroup;
   }
 
   login(){
-    this.http.get<any>("http://localhost:50883/api/CustomerTables")
+    this.http.get<any>("http://localhost:64413/api/CustomerTables")
     .subscribe(res=>{
       const user =res.find((a:any)=>{
         return a.Email===this.loginForm.value.Email && a.Password===this.loginForm.value.Password

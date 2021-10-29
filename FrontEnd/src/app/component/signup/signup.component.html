@@ -8,24 +8,24 @@
            
                     <form [formGroup]="signupForm" (ngSubmit)="signUp()">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                            <input formControlName="Fullname" type="email" class="form-control" id="fullname" aria-describedby="emailHelp">
+                            <label data-error="Required field!" for="exampleInputEmail1" class="form-label">Full Name</label>
+                            <input class="validate" formControlName="Fullname" type="email" class="form-control" id="fullname" aria-describedby="emailHelp" required>
                            
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Mobile Number</label>
-                            <input formControlName="Mobilephone" type="number" class="form-control" id="mobilenumber" aria-describedby="emailHelp">
+                            <label data-error="Required field!" for="exampleInputEmail1" class="form-label">Mobile Number</label>
+                            <input class="validate" formControlName="Mobilephone" type="number" class="form-control" id="mobilenumber" aria-describedby="emailHelp" required>
                            
                           </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">        
+                          <label data-error="email invalid!" for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input class="validate" formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [pattern]="emailPattern">        
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input formControlName="Password" type="password" class="form-control" id="exampleInputPassword1"> 
+                          <label data-error="Required field!" for="exampleInputPassword1" class="form-label">Password</label>
+                          <input class="validate" formControlName="Password" type="password" class="form-control" id="exampleInputPassword1" required> 
                         </div>                       
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <button [disabled]="!signupForm.valid" type="submit" class="btn btn-primary">Sign Up</button>
                       </form>
                       <a style="margin-top: 5px;" [routerLink]="['/login']" >Already registered? Click to login</a>
         </div>
