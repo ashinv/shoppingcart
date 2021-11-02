@@ -27,7 +27,7 @@
                             <td style="width: 12%;">{{item.quantity}}</td>
                             <td style="width: 12%;">{{item.total}}</td>
                             <td>
-                                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                <button (click)="removeItem(item.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>
                             <td>
                                 <button (click)="additem(item)" class="btn btn-danger">+</button>
@@ -35,10 +35,9 @@
                         </tr>
                         <tr>
                             <td colspan="4"></td>
-                            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
                             <td><a [routerLink]="['/order']"><button class="btn btn-success">Place Order</button></a></td>
-                            <td><strong>Grand Total : Rs {{grandTotal}}</strong></td>
+                            <td><strong>Grand Total : Rs {{grandtotal()}}</strong></td>
                         </tr>
                     </tbody>
                 </table>

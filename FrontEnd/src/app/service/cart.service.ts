@@ -1,51 +1,51 @@
+import { CartsModule } from './../model/carts/carts.module';
+
+
+import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  public cartItemList : any =[]
-  public productList = new BehaviorSubject<any>([]);
+  public cartItemList : any;
+  public grandTotal:number=0;
   public search = new BehaviorSubject<string>("");
 
-  constructor() { }
-  getProducts(){
-    return this.productList.asObservable();
+  constructor(private httpclient:HttpClient) { }
+  getProducts():Observable<any>{
+     return this.httpclient.get<Array<CartsModule>>("http://localhost:64413/api/Carts");
   }
+  addtoCart(product : CartsModule){
+   
+   
+    return this.httpclient.post<CartsModule>("http://localhost:64413/api/Carts", product);
 
-  setProduct(product : any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
   }
-  addtoCart(product : any){
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
-    this.getTotalPrice();
-    console.log(this.cartItemList)
+  getTotalPrice():number{
+this.grandTotal=0;
+    this.getProducts()
+    .subscribe(res=>{
+      this.cartItemList = res;
+      this.cartItemList.forEach((a:CartsModule) => {
+        this.grandTotal+=a.total;
+        });
+      });    
+    console.log(this.grandTotal);
+    return this.grandTotal;
   }
-  addsameitem(){
-    this.productList.next(this.cartItemList);
-     this.getTotalPrice();
+  removeCartItem(id:number):Observable<CartsModule>{
+    return this.httpclient.delete<CartsModule>("http://localhost:64413/api/Carts/"+id);
+    
   }
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
+  updateCart(item:CartsModule):Observable<any>{
+    return this.httpclient.put<CartsModule>("http://localhost:64413/api/Carts/"+item.id,item);
   }
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
-    this.productList.next(this.cartItemList);
-  }
-  removeAllCart(){
-    this.cartItemList = []
-    this.productList.next(this.cartItemList);
-  }
+ 
 }

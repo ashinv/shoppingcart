@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
 
   }
 signUp(){
-  this.http.post<any>("http://localhost:64413/api/CustomerTables",this.signupForm.value)
+  this.http.post<any>("http://localhost:64413/api/Customers",this.signupForm.value)
   .subscribe(res=>{
     alert("SignUp Successfull");
     this.signupForm.reset();

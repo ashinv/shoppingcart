@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartsModule } from 'src/app/model/carts/carts.module';
+import { ProductModule } from 'src/app/model/product/product.module';
 import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -8,10 +10,11 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
+item: ProductModule = new ProductModule();
   public productList : any ;
   public filterCategory : any
   searchKey:string ="";
+  prod: CartsModule = new CartsModule();
   constructor(private api : ApiService, private cartService : CartService) { }
 
   ngOnInit(): void {
@@ -19,7 +22,7 @@ export class ProductsComponent implements OnInit {
     .subscribe(res=>{
       this.productList = res;
       this.filterCategory = res;
-      this.productList.forEach((a:any) => {
+      this.productList.forEach((a:ProductModule) => {
         if(a.category ==="women's clothing" || a.category ==="men's clothing"){
           a.category ="fashion"
         }
@@ -32,8 +35,20 @@ export class ProductsComponent implements OnInit {
       this.searchKey = val;
     })
   }
-  addtocart(item: any){
-    this.cartService.addtoCart(item);
+  addtocart(item:any){
+    console.log(item);
+    this.prod=item;
+    console.log(this.prod);
+    this.cartService.addtoCart(this.prod)
+    .subscribe(res => {
+    
+      console.log(res);
+      alert("Successfully Added to Cart");
+      this.prod = new CartsModule();
+    }, error => {
+      alert("Something Went Wrong");
+    }
+    )
   }
   filter(category:string){
     this.filterCategory = this.productList

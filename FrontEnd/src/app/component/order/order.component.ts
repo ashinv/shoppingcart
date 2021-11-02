@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { OrderModule } from './../../model/order/order.module';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 @Component({
@@ -6,17 +8,22 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  public grandTotal !: number;
-  public Total !:number;
-
-  constructor(private cartService : CartService) { }
+ 
+  item: OrderModule =new OrderModule();
+  constructor(private cartService : CartService,private httpclient:HttpClient) { }
 
   ngOnInit(): void {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.Total = this.cartService.getTotalPrice();
-      this.grandTotal=this.Total+10;
-    })
+    this.item.subtotal=this.grandtotal();
+    this.item.shipping=10;
+    this.item.tax=0;
+    this.item.totalamt=this.item.subtotal+this.item.shipping+this.item.tax;
+    
   }
-
+  grandtotal():number{
+    return this.cartService.grandTotal
+  }
+  additem(){
+    console.log(this.item);
+    return this.httpclient.post<OrderModule>("http://localhost:50260/api/Orders",this.item);
+  }
 }

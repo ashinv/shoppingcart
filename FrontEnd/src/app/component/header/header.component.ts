@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -8,14 +10,21 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public updateSubscription: Subscription | undefined;
   public totalItem : number = 0;
   public searchTerm !: string;
   constructor(private cartService : CartService) { }
 
-  ngOnInit(): void {
+  ngOnInit():void {
+    this.updateSubscription = interval(1000).subscribe(
+      (val) => { this.fetchcart()});
+ 
+  }
+  private fetchcart()
+  {
     this.cartService.getProducts()
     .subscribe(res=>{
-      this.totalItem = res.length;
+       this.totalItem = res.length;
     })
   }
   search(event:any){
