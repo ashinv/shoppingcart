@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   getProduct(){
-    return this.http.get<ProductModule>("http://localhost:3000/products")
+    return this.http.get<ProductModule>("https://fakestoreapi.com/products")
     .pipe(map((res:ProductModule)=>{
       return res;
     }))
