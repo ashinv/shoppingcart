@@ -28,6 +28,7 @@ public loginForm!:FormGroup;
         alert("Login Successfull");
         this.loginForm.reset();
         this.router.navigate(['products']);
+       
       }
       else{
         alert("Login Failed");
