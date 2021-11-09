@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import{FormGroup,FormBuilder} from '@angular/forms'
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 public loginForm!:FormGroup;
+
   constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
@@ -28,7 +30,6 @@ public loginForm!:FormGroup;
         alert("Login Successfull");
         this.loginForm.reset();
         this.router.navigate(['products']);
-       
       }
       else{
         alert("Login Failed");

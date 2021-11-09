@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   public updateSubscription: Subscription | undefined;
   public totalItem : number = 0;
   public searchTerm !: string;
+  public flag:number=0;
   constructor(private cartService : CartService) { }
 
   ngOnInit():void {
@@ -31,5 +32,14 @@ export class HeaderComponent implements OnInit {
     this.searchTerm = (event.target as HTMLInputElement).value;
     console.log(this.searchTerm);
     this.cartService.search.next(this.searchTerm);
+  }
+  async login()
+  {
+    await new Promise<void>(done => setTimeout(() => done(), 8000));
+    this.flag=1;
+  }
+  logout()
+  {
+    this.flag=0;
   }
 }

@@ -13,9 +13,16 @@
             </div>
         
         </div>
-        <button [routerLink]="['/login']" routerLinkActive="router-link-active"   class="btn btn-primary">
+        <ng-container *ngIf="flag ==0">
+        <button [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="login()"  class="btn btn-primary">
            <strong>Login</strong>
         </button>
+    </ng-container>
+    <ng-container *ngIf="flag !=0">
+        <button [routerLink]="['/products']" routerLinkActive="router-link-active" (click)="logout()"  class="btn btn-primary">
+           <strong>Logout</strong>
+        </button>
+    </ng-container>
         <button routerLink="cart" class="btn btn-primary">
             <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>

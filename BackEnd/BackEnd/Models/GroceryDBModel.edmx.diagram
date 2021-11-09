@@ -7,6 +7,8 @@
       <Diagram DiagramId="0d758ca06d044210a024ab85a1e70c2d" Name="Diagram1">
         <EntityTypeShape EntityType="groceryDBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="groceryDBModel.Cart" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="groceryDBModel.Order" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="groceryDBModel.Address" Width="1.5" PointX="5" PointY="3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

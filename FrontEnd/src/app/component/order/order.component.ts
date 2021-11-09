@@ -17,13 +17,19 @@ export class OrderComponent implements OnInit {
     this.item.shipping=10;
     this.item.tax=0;
     this.item.totalamt=this.item.subtotal+this.item.shipping+this.item.tax;
+    this.item.totalamt=Number(this.item.totalamt.toFixed(2));
     
   }
   grandtotal():number{
     return this.cartService.grandTotal
   }
-  additem(){
+  addorder(){
     console.log(this.item);
-    return this.httpclient.post<OrderModule>("http://localhost:50260/api/Orders",this.item);
+    this.httpclient.post<any>("http://localhost:64413/api/Orders",this.item)
+  .subscribe(res=>{
+    console.log("Order details saved Successfull");
+  },err=>{
+    console.log("Something went wrong");
+  })
   }
 }
