@@ -28,10 +28,10 @@ save(){
   console.log(this.AddressForm.value);
   this.http.post<any>("http://localhost:64413/api/Addresses",this.AddressForm.value)
   .subscribe(res=>{
-    alert("Address saved Successfull");
+    console.log("Address saved Successfull");
     this.AddressForm.reset();
   },err=>{
-    alert("Something went wrong");
+    console.log("Something went wrong");
   })
   this.AddressForm.reset();
 }
