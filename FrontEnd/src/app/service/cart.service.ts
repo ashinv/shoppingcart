@@ -49,9 +49,7 @@ this.grandTotal=0;
   updateCart(item:CartsModule):Observable<any>{
     return this.httpclient.put<CartsModule>("http://localhost:64413/api/Carts/"+item.id,item);
   }
-  removeAllCart():Observable<any>{
-    return this.httpclient.delete<Array<CartsModule>>("http://localhost:64413/api/Carts");
-  }
+ 
   
 
 

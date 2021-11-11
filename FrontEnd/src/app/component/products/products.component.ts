@@ -35,8 +35,17 @@ item: ProductModule = new ProductModule();
       this.searchKey = val;
     })
   }
-  addtocart(item:any){
-    console.log(item);
+  addtocart(item:CartsModule){ 
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      const check =res.find((a:CartsModule)=>{
+        return a.id===item.id
+      });
+      if(check){
+        alert("Already in Cart");     
+      }
+      else{
+        console.log(item);
     this.prod=item;
     console.log(this.prod);
     this.cartService.addtoCart(this.prod)
@@ -49,6 +58,12 @@ item: ProductModule = new ProductModule();
       alert("Something Went Wrong");
     }
     )
+  
+      }
+    },err=>{
+      alert("Something went wrong");
+    })
+    
   }
   filter(category:string){
     this.filterCategory = this.productList
