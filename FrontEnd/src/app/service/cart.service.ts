@@ -18,6 +18,7 @@ export class CartService {
 
   public grandTotal:number=0;
   public search = new BehaviorSubject<string>("");
+  public productList = new BehaviorSubject<any>([]);
  
   constructor(private httpclient:HttpClient) { }
   getProducts():Observable<any>{
@@ -48,5 +49,11 @@ this.grandTotal=0;
   updateCart(item:CartsModule):Observable<any>{
     return this.httpclient.put<CartsModule>("http://localhost:64413/api/Carts/"+item.id,item);
   }
+  removeAllCart():Observable<any>{
+    return this.httpclient.delete<Array<CartsModule>>("http://localhost:64413/api/Carts");
+  }
+  
+
+
 
 }

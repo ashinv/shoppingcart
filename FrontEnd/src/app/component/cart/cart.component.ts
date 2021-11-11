@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   public updateSubscription: Subscription | undefined;
   public products : any;
   public grandTotal !: number;
+  public productlist:any;
   constructor(private cartService : CartService) { }
 
   ngOnInit(): void {
@@ -59,5 +60,24 @@ export class CartComponent implements OnInit {
 
  }
 
+ emptyCart(){
+  this.cartService.getProducts()
+  .subscribe(res=>{
+    this.productlist = res;
+    this.productlist.forEach((element: { id: number; }) => {
+      this.cartService.removeCartItem(element.id)
+      .subscribe(res => {      
+        console.log(res);
+        console.log("Cart emptied");
+      }, error => {
+       console.log("Something Went Wrong");
+      }
+      )
+      
+    });
+  })
 }
+
+}
+
 

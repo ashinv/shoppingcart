@@ -35,6 +35,7 @@
                         </tr>
                         <tr>
                             <td colspan="4"></td>
+                            <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
                             <td><a [routerLink]="['/order']"><button class="btn btn-success">Place Order</button></a></td>
                             <td><strong>Grand Total : Rs {{grandtotal()}}</strong></td>
