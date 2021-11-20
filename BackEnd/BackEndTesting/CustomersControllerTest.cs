@@ -54,11 +54,5 @@ namespace BackEndTesting
             Assert.AreEqual(typeof(StatusCodeResult), result.GetType());
 
         }
-        [Test]
-        public void DeleteCustomerById()
-        {
-            IHttpActionResult result = customersController.DeleteCustomer(32);
-            Assert.AreEqual(typeof(OkNegotiatedContentResult<Customer>), result.GetType());
-        }
     }
 }

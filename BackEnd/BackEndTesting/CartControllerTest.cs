@@ -24,13 +24,13 @@ namespace BackEndTesting
         [Test]
         public void GetCartByIdTest()
         {
-            IHttpActionResult cart = cartsController.GetCart(1);
+            IHttpActionResult cart = cartsController.GetCart(4);
             OkNegotiatedContentResult<Cart> contentResult = (OkNegotiatedContentResult<Cart>)cart;
             string actualOutput = contentResult.Content.title;
-            Assert.AreEqual(actualOutput, "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops");
+            Assert.AreEqual(actualOutput, "Mens Casual Slim Fit");
         }
         [Test]
-        public void postcarttest()
+        public void Apostcarttest()
         {
             Cart cart = new Cart();
             cart.id = 4;
@@ -62,7 +62,7 @@ namespace BackEndTesting
 
         }
         [Test]
-        public void DeleteCartById()
+        public void zDeleteCartById()
         {
             IHttpActionResult result = cartsController.DeleteCart(4);
             Assert.AreEqual(typeof(OkNegotiatedContentResult<Cart>), result.GetType());
